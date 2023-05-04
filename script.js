@@ -1,0 +1,26 @@
+const boxes = document.querySelectorAll(".box");
+console.log(boxes);
+
+window.addEventListener("scroll", checkBoxes);
+
+checkBoxes();
+function checkBoxes() {
+
+  console.log(window.innerHeight);
+
+  const triggerBottom = (window.innerHeight / 5) * 4;
+
+  console.log(triggerBottom);
+
+  boxes.forEach((box) => {
+
+    const boxTop = box.getBoundingClientRect().top;
+    
+    if (boxTop < triggerBottom) {
+      box.classList.add("show");
+    } else {
+      box.classList.remove("show");
+    }
+
+  });
+}
